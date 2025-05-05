@@ -1,0 +1,128 @@
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7974.jpg?w=740&t=st=1717257367~exp=1717257967~hmac=f3c37b3680afeae0e2245df60e1f2b641c0f549b62e82c67216f43312e9c0cf1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            background-color: #0068A5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            margin-left: 30px;
+        }
+        .header .left-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+        }
+        .header img {
+            height: 90px;
+        }
+        .header .title {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .header .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        .header .nav-buttons button {
+            background-color: #0068A5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .header .nav-buttons button:hover {
+            background-color: #50b948;
+        }
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+            transition: transform 0.3s;
+            margin-top: 120px;
+        }
+        .login-container:hover {
+            transform: translateY(-5px);
+        }
+        .login-container h1 {
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: #0068A5;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #b0bec5;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #00796b;
+        }
+        .login-container button {
+            background-color: #0068A5;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .login-container button:hover {
+            background-color: #50b948;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .footer {
+            width: 100%;
+            background-color: #0068A5;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    

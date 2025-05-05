@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #51b7f3;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Medicine Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Pill Name</th>
+                <th>Pill Time</th>
+                <th>Pill Dosage</th>
+                <th>Pill Duration (days)</th>
+            </tr>
+        </thead>
+        <tbody id="medicine-details">
+            {% for medicine in medicines %}
+    <tr>
+        <td>{{ medicine.PillName }}</td>
+        <td>{{ medicine.PillTime }}</td>
+        <td>{{ medicine.NumberOfPills }}</td>
+        <td>{{ medicine.PillDuration }}</td>
+    </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- <script>
+    // Sample data for testing
+    const medicines = [
+        { name: "Medicine A", time: "08:00 AM", dosage: "1 pill", duration: 7 },
+        { name: "Medicine B", time: "12:00 PM", dosage: "2 pills", duration: 10 },
+        { name: "Medicine C", time: "06:00 PM", dosage: "1 pill", duration: 30 }
+    ];
+
+    // Function to populate medicine details table
+    function populateMedicineDetails() {
+        const medicineDetails = document.getElementById('medicine-details');
+        medicineDetails.innerHTML = ''; // Clear previous entries
+        
+        medicines.forEach(medicine => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${medicine.name}</td>
+                <td>${medicine.time}</td>
+                <td>${medicine.dosage}</td>
+                <td>${medicine.duration}</td>
+            `;
+            medicineDetails.appendChild(row);
+        });
+    }
+
+    // Call the function to populate medicine details on page load
+    window.onload = populateMedicineDetails;
+</script> -->
+
+</body>
+</html>

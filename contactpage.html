@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/blur-hospital_1203-7974.jpg?w=740&t=st=1717257367~exp=1717257967~hmac=f3c37b3680afeae0e2245df60e1f2b641c0f549b62e82c67216f43312e9c0cf1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            width: 100%;
+            background-color: #0068A5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            margin-left: 30px;
+        }
+        .header .left-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+        }
+        .header img {
+            height: 90px;
+        }
+        .header .title {
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .header .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        .header .nav-buttons button {
+            background-color: #0068A5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .header .nav-buttons button:hover {
+            background-color: #50b948;
+        }
+        .contact-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-top: 120px;
+        }
+        .contact-container, .form-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 360px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .contact-container:hover, .form-container:hover {
+            transform: translateY(-5px);
+        }
+        .contact-container h1, .form-container h1 {
+            margin-bottom: 35px;
+            font-size: 24px;
+            color: #0068A5;
+        }
+		.contact-container p {
+            margin: 12px 0;
+            font-size: 18px;
+            color: #00796b;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container textarea {
+            width: calc(100% - 24px);
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #b0bec5;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: #00796b;
+        }
+        .form-container textarea {
+            height: 100px;
+            resize: none;
+        }
+        .form-container button[type="submit"] {
+            background-color: #0068A5;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .form-container button[type="submit"]:hover {
+            background-color: #50b948;
+        }
+		 .social-media-links {
+            margin-top: 20px;
+        }
+        .social-media-links a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-media-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+        .social-media-links img:hover {
+            transform: scale(1.1);
+        }
+        .footer {
+            width: 100%;
+            background-color: #0068A5;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .footer a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="left-header">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Hospital Logo">
+        <div class="title">MediGaurd</div>
+    </div>
+    <div class="nav-buttons">
+        <button>About</button>
+    </div>
+</div>
+
+<div class="contact-wrapper">
+    <div class="contact-container">
+        <h1>Contact Us</h1>
+        <p><strong>Phone:</strong> +1 234 567 890</p>
+        <p><strong>Email:</strong> contact@medigaurd.com</p>
+        <p><strong>Support Email:</strong> support@medigaurd.com</p>
+        <p><strong>Address:</strong> 123 MediGuard Avenue, Health City, Country</p>
+        <p><strong>Office Hours:</strong> Mon-Fri 9:00 AM - 6:00 PM</p>
+		 <div class="social-media-links">
+            <a href="https://twitter.com" target="_blank">
+                <img src="https://imgs.search.brave.com/Gm2XGVahgn5W2zQAXHE0gI-xxPNo66-juuUXZ3Zwdhg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1wc2Qv/M2QtdHdpdHRlci1u/ZXctbG9nby14LXdo/aXRlLTNkLXJlbmRl/ci10cmFuc3BhcmVu/dF8yMTk3ODQtMTM0/LmpwZz9zaXplPTYy/NiZleHQ9anBn" alt="Twitter">
+            </a>
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://imgs.search.brave.com/oJLuDjXTERHn6k3KVbwsFYoTaOMgkykMkCaH5mYfaKM/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93d3cu/ZWRpZ2l0YWxhZ2Vu/Y3kuY29tLmF1L3dw/LWNvbnRlbnQvdXBs/b2Fkcy9GYWNlYm9v/ay1sb2dvLWJsdWUt/Y2lyY2xlLWxhcmdl/LXdoaXRlLWYucG5n" alt="Facebook">
+            </a>
+            <a href="https://linkedin.com" target="_blank">
+                <img src="https://imgs.search.brave.com/uGDtHsxME6trYi3Pg1IQoYBs0ZNStLg4fOwcz9gYrwo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy9j/L2NhL0xpbmtlZElu/X2xvZ29faW5pdGlh/bHMucG5n" alt="LinkedIn">
+            </a>
+            <a href="https://youtube.com" target="_blank">
+                <img src="https://imgs.search.brave.com/oIDPZUN4uTCex8OwcYTxpeBpWRi_el8CtVh1m3a_uTk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9mcmVl/bG9nb3BuZy5jb20v/aW1hZ2VzL2FsbF9p/bWcvMTY1NjUwNTM2/NnlvdXR1YmUtbG9n/by10cmFuc3BhcmVu/dC5wbmc" alt="YouTube">
+            </a>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <h1>Send Us a Message</h1>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<div class="footer">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact</a>
+    <a href="#">Support</a>
+</div>
+
+</body>
+</html>

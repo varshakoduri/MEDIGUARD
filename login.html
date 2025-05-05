@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+
+<div class="header">
+    <div class="left-header">
+        <img src="{{ url_for('static', filename='medigaurd.png') }}" alt="Hospital Logo">
+        <div class="title">MediGaurd</div>
+    </div>
+    <div class="nav-buttons">
+        <button>Support</button>
+        <a href="{{ url_for('other_page') }}"><button>Contact</button></a>
+
+        <button>About</button>
+    </div>
+</div>
+
+<div class="login-container">
+    <h1>Login</h1>
+    <form action="{{ url_for('login') }}" method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+    </form>
+</div>
+
+<div class="footer">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Contact</a>
+    <a href="#">Support</a>
+</div>
+
+</body>
+</html>

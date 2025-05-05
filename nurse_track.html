@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medication Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #007BFF;
+        }
+
+        .medication-log {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .medication-log th, .medication-log td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .medication-log th:first-child, .medication-log td:first-child {
+            width: 50%;
+        }
+
+        .medication-log th:last-child, .medication-log td:last-child {
+            width: 25%;
+        }
+
+        .medication-log th:nth-child(2), .medication-log td:nth-child(2) {
+            width: 25%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+
+        .view-image-btn {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Patient Medication Log</h1>
+            <p id="patient-info">Patient ID: {{ patient_id }}</p>
+        </div>
+        <table class="medication-log">
+            <thead>
+                <tr>
+                    <th>Pill Name</th>
+                    <th>Pill Status</th>
+                    <th>Upload Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pill in pills %}
+                <tr>
+                    <td>{{ pill.PillName }}</td>
+                    <td>
+                        <form action="{{ url_for('track_pill') }}" method="POST">
+                            <input type="hidden" name="pill_id" value="{{ pill.PillID }}">
+                            <input type="hidden" name="patient_id" value="{{ patient_id }}">
+                            <input type="checkbox" name="pill_taken" value="1" onchange="this.form.submit()">
+                        </form>
+                    </td>
+                    <td>
+                        <form action="{{ url_for('track_pill') }}" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="pill_id" value="{{ pill.PillID }}">
+                            <input type="hidden" name="patient_id" value="{{ patient_id }}">
+                            <input type="file" name="image">
+                            <button type="submit">Upload</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="footer">
+            <p>&copy; 2024 Healthcare System</p>
+        </div>
+    </div>
+
+</body>
+</html>

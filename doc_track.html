@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Medication Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #007BFF;
+        }
+
+        .medication-log {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .medication-log th, .medication-log td {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .medication-log th:first-child, .medication-log td:first-child {
+            width: 50%;
+        }
+
+        .medication-log th:last-child, .medication-log td:last-child {
+            width: 25%;
+        }
+
+        .medication-log th:nth-child(2), .medication-log td:nth-child(2) {
+            width: 25%;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+        }
+
+        .view-image-btn {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Patient Medication Log</h1>
+            <p id="patient-info">Patient Information</p>
+        </div>
+        <table class="medication-log" id="medication-log">
+            <thead>
+                <tr>
+                    <th>date</th>
+                    <th>Pill Name</th>
+                    <th>Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in track_data %}
+                <tr>
+                    <td>{{ item.Date }}</td>
+                    <td>{{ item.PillName }}</td>
+                    <td>{{ item.Time }}</td>
+                    <td><button class="view-image-btn" onclick="showImage('{{ item.Image }}')">View Image</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <script>
+            function showImage(imageUrl) {
+            const modal = document.createElement('div');
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.addEventListener('click', function() {
+                modal.parentElement.removeChild(modal);
+            });
+
+            const image = document.createElement('img');
+            image.src = imageUrl;
+            image.style.maxWidth = '90%';
+            image.style.maxHeight = '90%';
+
+            modal.appendChild(image);
+            document.body.appendChild(modal);
+        }
+
+        </script>
+        <div class="footer">
+            <p>&copy; 2024 Healthcare System</p>
+        </div>
+    </div>
+</body>
+</html>
